@@ -29,6 +29,10 @@
 
     <div class="row margin-row grid-action-bar">
         <div class="col-md-12">
+            <select ng-model="restrictDomain" ng-change="tableParams.reload()">
+                <option>{{ allDomainsLabel }}</option>
+                <option ng-repeat="domain in domains">{{ domain }}</option>
+            </select>
             <a ng-click="hideColumnsSelector = !hideColumnsSelector" class="btn btn-default btn-sm btn-manage-col">
                 <span class="glyphicon glyphicon-eye-close"></span>
                 {{ labels.hideCol }}
