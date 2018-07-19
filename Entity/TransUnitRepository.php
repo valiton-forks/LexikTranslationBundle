@@ -180,6 +180,11 @@ class TransUnitRepository extends EntityRepository
                     ->setParameter('key', sprintf('%%%s%%', $filters['key']));
             }
         }
+
+        if (isset($filters['restrictDomain']) && !empty($filters['restrictDomain'])) {
+            $builder->andWhere($builder->expr()->eq('tu.domain', ':restrictDomain'))
+                ->setParameter('restrictDomain', sprintf('%s', $filters['restrictDomain']));
+        }
     }
 
     /**

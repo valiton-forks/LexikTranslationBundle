@@ -3,6 +3,10 @@
 <div id="translation-grid" ng-app="translationApp" ng-controller="TranslationController">
     <div class="row margin-row">
         <div class="col-md-12">
+            <select ng-model="restrictDomain" ng-change="tableParams.reload()">
+                <option>{{ allDomainsLabel }}</option>
+                <option ng-repeat="domain in domains">{{ domain }}</option>
+            </select>
             <a ng-click="hideColSelector = !hideColSelector" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-eye-close"></span>
                 {{ hideColBtnLabel }}
